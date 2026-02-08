@@ -42,7 +42,7 @@ netbsd:
 omnios:
     @exec {{QEMU}} \
     -cpu host,-xsave \
-    --bios /usr/share/edk2/x64/OVMF.4m.fd \
+    --bios {{UEFI_BIOS}} \
     -global isa-fdc.fdtypeA=none \
     -smp 4 \
     -nic user,model=e1000 \
@@ -57,7 +57,7 @@ omnios:
 openbsd:
     @exec {{QEMU}} \
     -global isa-fdc.fdtypeA=none \
-    --bios /usr/share/edk2/x64/OVMF.4m.fd \
+    --bios {{UEFI_BIOS}} \
     -smp 4 \
     -nic user,model=e1000 \
     -vga virtio \
