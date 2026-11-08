@@ -33,11 +33,12 @@ netbsd:
     -global isa-fdc.fdtypeA=none \
     -smp 4 \
     -nic user,model=e1000 \
+    -bios {{UEFI_BIOS}} \
     -enable-kvm \
     -m 1024 \
     -device virtio-blk,drive=myhd \
     -drive if=none,file=$HOME/netbsd.qcow2,id=myhd,index=0,media=disk
-    # -drive file=$HOME/Downloads/NetBSD-9.3-amd64-install.img,index=1,media=disk,format=raw
+    # -drive file=$HOME/Downloads/NetBSD-11.1-amd64-install.img,index=1,media=disk,format=raw
 
 omnios:
     @exec {{QEMU}} \
