@@ -6,10 +6,14 @@ default:
 
 freebsd:
     @exec {{QEMU}} \
+    -name {{capitalize(recipe_name())}} \
     -chardev qemu-vdagent,id=ch1,name=vdagent,clipboard=on \
     -device virtio-serial-pci \
     -device virtserialport,chardev=ch1,id=ch1,name=com.redhat.spice.0 \
     -global isa-fdc.fdtypeA=none \
+    -nodefaults \
+    -vga std \
+    -monitor vc \
     -smp 4 \
     -nic user,model=e1000 \
     -enable-kvm \
